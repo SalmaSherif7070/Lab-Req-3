@@ -1,0 +1,160 @@
+{
+    "info": {
+      "name": "Todos API",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+      "description": "A Postman collection for the Todos API with authentication."
+    },
+    "item": [
+      {
+        "name": "Get All Todos",
+        "request": {
+          "method": "GET",
+          "header": [
+            {
+              "key": "Authorization",
+              "value": "Bearer <token>",
+              "type": "text"
+            }
+          ],
+          "url": {
+            "raw": "http://localhost:5000/todoes",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "5000",
+            "path": ["todoes"]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Get Todo by ID",
+        "request": {
+          "method": "GET",
+          "header": [
+            {
+              "key": "Authorization",
+              "value": "Bearer <token>",
+              "type": "text"
+            }
+          ],
+          "url": {
+            "raw": "http://localhost:5000/items/:id",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "5000",
+            "path": ["items", ":id"],
+            "variable": [
+              {
+                "key": "id",
+                "value": "1"
+              }
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Create Todo",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Authorization",
+              "value": "Bearer <token>",
+              "type": "text"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "type": "text"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"title\": \"New Todo\",\n  \"completed\": false\n}"
+          },
+          "url": {
+            "raw": "http://localhost:5000/todoes",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "5000",
+            "path": ["todoes"]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Update Todo",
+        "request": {
+          "method": "PUT",
+          "header": [
+            {
+              "key": "Authorization",
+              "value": "Bearer <token>",
+              "type": "text"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "type": "text"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"title\": \"Updated Todo Title\",\n  \"completed\": true\n}"
+          },
+          "url": {
+            "raw": "http://localhost:5000/todoes/:id",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "5000",
+            "path": ["todoes", ":id"],
+            "variable": [
+              {
+                "key": "id",
+                "value": "1"
+              }
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Delete Todo",
+        "request": {
+          "method": "DELETE",
+          "header": [
+            {
+              "key": "Authorization",
+              "value": "Bearer <token>",
+              "type": "text"
+            }
+          ],
+          "url": {
+            "raw": "http://localhost:5000/todoes/:id",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "5000",
+            "path": ["todoes", ":id"],
+            "variable": [
+              {
+                "key": "id",
+                "value": "1"
+              }
+            ]
+          }
+        },
+        "response": []
+      }
+    ],
+    "auth": {
+      "type": "bearer",
+      "bearer": [
+        {
+          "key": "token",
+          "value": "<token>"
+        }
+      ]
+    }
+  }
+  
