@@ -6,7 +6,7 @@ app = Flask(__name__)
 app.register_blueprint(todos_bp, url_prefix = '/todos')
 
 
-@app.errorhandeler(404)
+@app.errorhandler(404)
 def not_found(e):
     return jsonify({'error': 'Resourse not found'}), 404
 
