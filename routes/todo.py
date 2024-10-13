@@ -40,7 +40,8 @@ def update_todo(id):
     todo = next((t for t in todos if t['id'] == id), None)
     if todo is None:
         return jsonify({'error': 'Todo not found'}), 404
-    todo['title'] = request.json.get("completed", todo['completed'])
+    todo['title'] = request.json.get("title", todo['title'])
+    todo['completed'] = request.json.get("completed", todo['completed'])
     return jsonify(todo)
     
 

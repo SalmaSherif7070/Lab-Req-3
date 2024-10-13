@@ -4,9 +4,9 @@ info:
   description: API for managing todos
   version: 1.0.0
 servers:
-  - url: http://localhost:3000
+  - url: http://localhost:5000  # Update the port to match your Flask app
 paths:
-  /todoes:
+  /todos:  # Ensure the path matches your Flask endpoint
     get:
       summary: Get all todos
       responses:
@@ -52,16 +52,16 @@ paths:
                     type: string
                   completed:
                     type: boolean
-  /items/{id}:
+  /todos/{id}:  # Ensure the path matches your Flask endpoint
     get:
       summary: Get a specific todo by ID
       parameters:
         - in: path
           name: id
-          schema:
-            type: integer
           required: true
           description: ID of the todo to fetch
+          schema:
+            type: integer
       responses:
         '200':
           description: Specific todo found
@@ -83,10 +83,10 @@ paths:
       parameters:
         - in: path
           name: id
-          schema:
-            type: integer
           required: true
           description: ID of the todo to update
+          schema:
+            type: integer
       requestBody:
         required: true
         content:
@@ -119,10 +119,10 @@ paths:
       parameters:
         - in: path
           name: id
-          schema:
-            type: integer
           required: true
           description: ID of the todo to delete
+          schema:
+            type: integer
       responses:
         '204':
           description: Todo deleted
