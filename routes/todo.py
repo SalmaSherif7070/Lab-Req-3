@@ -10,7 +10,7 @@ def before_request():
     authenticate_token()
 
 # Endpoint 1: GET endpoint
-@todos_bp.route("/todoes", methods = ["GET"])
+@todos_bp.route("/", methods = ["GET"])
 def get_todos():
     return jsonify(todos)
 
@@ -23,7 +23,7 @@ def get_item(id):
     return jsonify(todo)
 
 # Endpoint 3: POST endpoint
-@todos_bp.route("/todoes", methods = ["POST"])
+@todos_bp.route("/", methods = ["POST"])
 def create_todo():
     todo = {
         "id": len(todos) + 1,
@@ -35,7 +35,7 @@ def create_todo():
 
 
 # Endpoint 4: PUT endpoint
-@todos_bp.route("/todoes/<int:id>", methods = ["PUT"])
+@todos_bp.route("/<int:id>", methods = ["PUT"])
 def update_todo(id):
     todo = next((t for t in todos if t['id'] == id), None)
     if todo is None:
@@ -45,7 +45,7 @@ def update_todo(id):
     
 
 # Endpoint 5: DELETE endpoint
-@todos_bp.route("/todoes/<int:id>", methods = ["DELETE"])
+@todos_bp.route("/<int:id>", methods = ["DELETE"])
 def delete_todo(id):
     global todos
     todos = [t for t in todos if t['id'] != id]
